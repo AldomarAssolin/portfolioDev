@@ -1,6 +1,7 @@
 package br.com.aldomarassolin.portifolio_dev.model;
 
 
+import br.com.aldomarassolin.portifolio_dev.domain.projeto.DadosCadastroProjetoDTO;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -39,19 +40,19 @@ public class Projetos {
 
     public Projetos(){}
 
-    public Projetos(Long id, String nome, String descricao, String descricaoLonga, Date dataInicio, Date dataFim, String linkProjeto, String linkRepositorio, String linkDocumentacao, String imagemDestaque, String imagemThumb, String imagemGeral, Usuarios usuario) {
-        this.id = id;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.descricaoLonga = descricaoLonga;
-        this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
-        this.linkProjeto = linkProjeto;
-        this.linkRepositorio = linkRepositorio;
-        this.linkDocumentacao = linkDocumentacao;
-        this.imagemDestaque = imagemDestaque;
-        this.imagemThumb = imagemThumb;
-        this.imagemGeral = imagemGeral;
+    public Projetos(DadosCadastroProjetoDTO dados, Usuarios usuario) {
+        this.id = dados.id();
+        this.nome = dados.nome();
+        this.descricao = dados.descricao();
+        this.descricaoLonga = dados.descricaoLonga();
+        this.dataInicio = dados.dataInicio();
+        this.dataFim = dados.dataFim();
+        this.linkProjeto = dados.linkProjeto();
+        this.linkRepositorio = dados.linkRepositorio();
+        this.linkDocumentacao = dados.linkDocumentacao();
+        this.imagemDestaque = dados.imagemDestaque();
+        this.imagemThumb = dados.imagemThumb();
+        this.imagemGeral = dados.imagemGeral();
         this.usuario = usuario;
     }
 
